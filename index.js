@@ -10,13 +10,17 @@ const rudeGoodbye = (name) => {
   return `Se měj, ${name}`;
 };
 
+const witchyGoodbye = (name) => {
+  return `Ať je Merlin s vámi na každém kroku, ${name}`;
+}
+
 const fillSubject = (subject) => {
   document.querySelector(".email__subject").textContent = subject;
 };
 
 const fillBody = (body, name, goodbyeFunction) => {
   const bodyElm = document.querySelector(".email__body");
-  bodyElm.innerHTML += body;
+  bodyElm.innerHTML = body;
   const closingElm = document.querySelector(".email__closing");
   closingElm.textContent = goodbyeFunction(name);
 };
@@ -34,3 +38,10 @@ fillBody(
   "Patrik Veselý", 
   rudeGoodbye
   );
+
+fillSubject("Oslava slunovratu"),
+fillBody (
+  "Přijďte oslavit návrat světla na severní hemisféru.",
+  "Šárka Baběradová",
+  witchyGoodbye
+)
